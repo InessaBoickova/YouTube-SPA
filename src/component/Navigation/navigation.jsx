@@ -1,20 +1,38 @@
 import './navigation.sass'
-import {  Layout, Menu} from 'antd';
-const { Header } = Layout;
-const items1 = ['Поиск', 'Избранное', 'Выйти'].map((key) => ({
-  key,
-  label: `${key}`,
-}));
+import { useState } from 'react';
+import { Card } from 'antd';
+
+const tabListNoTitle = [
+  {
+    key: 'Поиск',
+    tab: 'Поиск',
+  },
+  {
+    key: 'Избранное',
+    tab: 'Избранное',
+  },
+];
 
 const Navigation = () =>{
-    return (
-            <Layout>
-                <Header className="header">
-                    <div className="logo" />
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
-                </Header>
-            </Layout>
-          );
-}
-export default Navigation;
+    const [activeTabKey, setActiveTabKey] = useState('app');
+    const onTabChange = (key) => {
+      setActiveTabKey(key);
+    };
 
+    return (
+      <>
+        <Card className='navigation'
+          tabList={tabListNoTitle}
+          activeTabKey={activeTabKey}
+          tabBarExtraContent={
+            <a href='#'>Выйти</a>
+          }
+          onTabChange={(key) => {
+            onTabChange(key);
+          }}>
+        </Card>
+      </>
+    );
+}
+
+export default Navigation;
