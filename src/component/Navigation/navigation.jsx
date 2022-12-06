@@ -1,36 +1,26 @@
 import './navigation.sass'
-import { useState } from 'react';
-import { Card } from 'antd';
-
-const tabListNoTitle = [
-  {
-    key: 'Поиск',
-    tab: 'Поиск',
-  },
-  {
-    key: 'Избранное',
-    tab: 'Избранное',
-  },
-];
+import VideoSearch from '../VideoSearch/videoSearch';
+import { Link } from 'react-router-dom';
+import { Tabs} from 'antd';
 
 const Navigation = () =>{
-    const [activeTabKey, setActiveTabKey] = useState('app');
-    const onTabChange = (key) => {
-      setActiveTabKey(key);
-    };
-
+  const onExit = ()=>{
+      localStorage.removeItem("token");
+  }
     return (
       <>
-        <Card className='navigation'
-          tabList={tabListNoTitle}
-          activeTabKey={activeTabKey}
-          tabBarExtraContent={
-            <a href='#'>Выйти</a>
-          }
-          onTabChange={(key) => {
-            onTabChange(key);
-          }}>
-        </Card>
+       <Tabs className='navigation' 
+            tabBarExtraContent={<Link to={'/YouTube-SPA/'} onClick={()=>onExit()} >Выйти</Link>}>
+          <Tabs.TabPane tab="Поиск" key="item-1">
+              <VideoSearch/>
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="Избранное" key="item-2">
+
+          </Tabs.TabPane>
+          <Tabs.TabPane>Right Extra Action</Tabs.TabPane>
+        </Tabs>
+        
+        
       </>
     );
 }

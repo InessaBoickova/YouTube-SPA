@@ -1,5 +1,4 @@
 import './videoSearch.sass'
-import Navigation from "../Navigation/navigation";
 import { SearchOutlined } from '@ant-design/icons';
 import { Input,Typography,Button, Space } from 'antd';
 const { Title } = Typography;
@@ -7,7 +6,6 @@ const { Title } = Typography;
 const VideoSearch = ()=>{
     return(
         <div className="video_search">
-            <Navigation/>
             <Title level={2}>
                 Поиск видео
             </Title>
@@ -20,7 +18,6 @@ const VideoSearch = ()=>{
                 </Space>
             </div>
         </div>
-       
     )
 }
 
