@@ -1,6 +1,6 @@
 {
-  "homepage": "https://inessaboickova.github.io/Youtube-SPA/",
-  "name": "Youtube-SPA",
+  "homepage": "https://inessaboickova.github.io/YouTube-SPA/",
+  "name": "youtube-spa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

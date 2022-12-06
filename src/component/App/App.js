@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-              <Route path='/Youtube-SPA/' element={<Login/>}/>
-              <Route path ='/Youtube-SPA/VideoSearch' element={ <VideoSearch/>}/>             
+              <Route path='/YouTube-SPA/' element={<Login/>}/>
+              <Route path ='/YouTube-SPA/VideoSearch' element={ <VideoSearch/>}/>             
           </Routes>
       </Router>
     </div>

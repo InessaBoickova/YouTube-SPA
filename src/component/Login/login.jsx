@@ -15,7 +15,7 @@ const Login = () => {
   const onFinish = (values) => {
     if(values.username === login.login && values.password === login.password){
       localStorage.setItem('token', getToken());
-      navigate('/Youtube-SPA/VideoSearch');
+      navigate('/YouTube-SPA/VideoSearch');
     } else{
       alert('Не верные данные');
     }
