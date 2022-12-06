@@ -1,15 +1,15 @@
-import './navigation.sass'
+import './youtubePage.sass'
 import VideoSearch from '../VideoSearch/videoSearch';
 import { Link } from 'react-router-dom';
 import { Tabs} from 'antd';
 
-const Navigation = () =>{
+const YoutubePage = () =>{
   const onExit = ()=>{
       localStorage.removeItem("token");
   }
     return (
       <>
-       <Tabs className='navigation' 
+       <Tabs className='youtubePage' 
             tabBarExtraContent={<Link to={'/YouTube-SPA/'} onClick={()=>onExit()} >Выйти</Link>}>
           <Tabs.TabPane tab="Поиск" key="item-1">
               <VideoSearch/>
@@ -19,10 +19,8 @@ const Navigation = () =>{
           </Tabs.TabPane>
           <Tabs.TabPane>Right Extra Action</Tabs.TabPane>
         </Tabs>
-        
-        
       </>
     );
 }
 
-export default Navigation;
+export default YoutubePage;
