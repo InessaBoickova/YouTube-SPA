@@ -1,24 +1,15 @@
-import React from 'react';
-import login from '../../login.json'
+import Service from '../../services/service';
 import './login.sass'
-import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Form, Input,Typography} from 'antd';
 const { Title } = Typography;
 
-const getToken = ()=>{
-  return Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2); 
-}
+
 
 const Login = () => {
-  const navigate = useNavigate();
-  
+  const {onLogin} = Service();
+
   const onFinish = (values) => {
-    if(values.username === login.login && values.password === login.password){
-      localStorage.setItem('token', getToken());
-      navigate('/YouTube-SPA/VideoSearch');
-    } else{
-      alert('Не верные данные');
-    }
+    onLogin(values.login , values.password)
   };
 
   const onFinishFailed = () => {
@@ -36,15 +27,13 @@ const Login = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off">
-            <Form.Item label="Логин" name="username"
-                    initialValue={login.login}
+            <Form.Item label="Логин" name="login"
                     rules={[{required: true,
                         message: 'Пожалуйста введите ваш логин',}, ]}>
                 <Input />
             </Form.Item>
 
             <Form.Item label="Пароль" name="password" 
-                initialValue={login.password}
                 rules={[{ required: true, message: 'Пожалуйста введите ваш пароль',},]}>
                 <Input.Password />
             </Form.Item>
